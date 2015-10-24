@@ -6,11 +6,17 @@ defmodule AllOnboard.Car do
     field :model, :string
     field :beacon_major, :integer
 
+    field :description
+    field :layout
+    field :fuel_type, :string
+    field :gearing, :string
+    field :intro_video_id, :string
+
     timestamps
   end
 
   @required_fields ~w(make model beacon_major)
-  @optional_fields ~w()
+  @optional_fields ~w(description layout fuel_type gearing intro_video_id)
 
   @doc """
   Creates a changeset based on the `model` and `params`.

@@ -2,7 +2,7 @@ defmodule AllOnboard.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "rooms:*", AllOnboard.RoomChannel
+  channel "cars:*", AllOnboard.CarChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

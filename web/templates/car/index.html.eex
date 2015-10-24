@@ -28,3 +28,6 @@
 </table>
 
 <%= link "New car", to: car_path(@conn, :new) %>
+
+<div id="messages"></div>
+<input id="chat-input" type="text"></input>

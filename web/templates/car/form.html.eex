@@ -26,6 +26,32 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :description, "Description", class: "control-label" %>
+    <%= textarea f, :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :layout, "Layout", class: "control-label" %>
+    <%= textarea f, :layout, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :fuel_type, "Fuel type", class: "control-label" %>
+    <%= select f, :fuel_type, ["Petrol": "petrol", "Diesel": "diesel", "Electric": "electric", "Hybrid": "hybrid", "LPG": "lpg"], class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :gearing, "Gearing", class: "control-label" %>
+    <%= select f, :gearing, ["Manual": "manual", "Automatic": "automatic"], class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :intro_video_id, "Intro video youtube ID", class: "control-label" %>
+    <%= text_input f, :intro_video_id, class: "form-control" %>
+  </div>
+
+
+  <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>

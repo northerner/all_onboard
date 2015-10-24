@@ -10,6 +10,6 @@ defmodule AllOnboard.API.CarController do
 
   def show(conn, %{"id" => id}) do
     car = Repo.get!(Car, id)
-    render(conn, "show.html", car: car)
+    render(conn, car: car)
   end
 end
