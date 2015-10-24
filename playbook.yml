@@ -1,0 +1,108 @@
+---
+- hosts: default
+
+  sudo: yes
+
+  roles:
+    # - ShadowKoBolt.vagrant-fresh
+
+  tasks:
+
+    - name: Set hostname of the server
+      hostname: name=all-onboard
+
+    - name: generate locale for en_GB.UTF-8
+      locale_gen: name=en_GB.UTF-8 state=present
+
+    - name: Set timezone
+      copy: content='Europe/London' dest=/etc/timezone owner=root group=root mode=0644
+      notify:
+        - update timezone
+
+    - name: Copy MOTD into place
+      copy: src=ansible/motd dest=/etc/motd owner=root
+
+    - name: Copy .bashrc for root
+      copy: src=ansible/bashrc dest=/root/.bashrc owner=root
+
+    - name: Copy .bashrc for root
+      copy: src=ansible/locale dest=/etc/default/locale owner=root
+
+    - name: Add postgres repo key to apt
+      apt_key: url=https://www.postgresql.org/media/keys/ACCC4CF8.asc state=present
+
+    - name: Add postgres repo to apt sources
+      apt_repository: repo='deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main' state=present
+
+    - name: install stuff from apt
+      apt: pkg={{ item }} state=latest update_cache=true
+      with_items:
+      - build-essential
+      - git-core
+      - rpl
+      - locate
+      - htop
+      - ntp
+      - rsync
+      - libproj-dev
+      - libxml2-dev
+      - libxslt1-dev
+      - libssl-dev
+      - libreadline-dev
+      - libcurl4-openssl-dev
+      - python-psycopg2
+      - sudo
+      - libsqlite3-dev
+      - postgresql-9.4
+      - postgresql-contrib-9.4
+      - postgresql-server-dev-9.4
+      - libffi-dev
+      - imagemagick
+      - libwxbase2.8-dev
+      - libwxgtk2.8-dev
+
+    - name: create vagrant user
+      sudo_user: postgres
+      postgresql_user: name=vagrant password=password role_attr_flags=NOSUPERUSER,CREATEDB
+ 
+    - name: create all_onboard db
+      sudo_user: postgres
+      postgresql_db: name=all_onboard encoding=UTF-8 lc_collate=en_GB.UTF-8 lc_ctype=en_GB.UTF-8 template=template0
+ 
+    - name: grant all privileges on all_onboard to vagrant
+      sudo_user: postgres
+      postgresql_privs: db=all_onboard privs=ALL type=database role=vagrant
+ 
+    - name: Get nodejs set up script
+      get_url: url=https://deb.nodesource.com/setup_0.12 dest=/usr/local/src/setup-node mode=0755
+
+    - name: Set up nodejs apt repo
+      command: /usr/local/src/setup-node
+
+    - name: Install nodejs
+      apt: name=nodejs state=present
+
+    - name: Download erlang
+      get_url: url=http://packages.erlang-solutions.com/site/esl/esl-erlang/FLAVOUR_1_general/esl-erlang_18.1-1~debian~wheezy_amd64.deb dest=/usr/local/src/esl-erlang.deb mode=0644
+
+    - name: Install erlang
+      apt: deb=/usr/local/src/esl-erlang.deb state=installed
+
+    - name: Clone elixir
+      git: repo=https://github.com/elixir-lang/elixir.git dest=/usr/local/src/elixir version=v1.0
+
+    - name: Make elixir
+      command: make clean test chdir=/usr/local/src/elixir
+
+    - name: Link in elixir to local bin path
+      file: state=link src=/usr/local/src/elixir/bin/elixir path=/usr/local/bin/elixir
+
+    - name: Link in mix to local bin path
+      file: state=link src=/usr/local/src/elixir/bin/mix path=/usr/local/bin/mix
+
+    - name: Link in iex elixir to local bin path
+      file: state=link src=/usr/local/src/elixir/bin/iex path=/usr/local/bin/iex
+
+  handlers:
+    - name: update timezone
+      command: dpkg-reconfigure --frontend noninteractive tzdata

@@ -7,7 +7,7 @@ use Mix.Config
 
 # Configures the endpoint
 config :all_onboard, AllOnboard.Endpoint,
-  url: [host: "localhost"],
+  url: [host: "0.0.0.0"],
   root: Path.dirname(__DIR__),
   secret_key_base: "xxxLL7tdcwWxL0cRcejnWWFc4fjRW4Limc0VHlwjvhGryMlrNEM0hT7Ka6REFr71",
   render_errors: [accepts: ~w(html json)],

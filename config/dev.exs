@@ -35,8 +35,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :all_onboard, AllOnboard.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "all_onboard_dev",
+  username: "vagrant",
+  password: "password",
+  database: "all_onboard",
   hostname: "localhost",
   pool_size: 10
