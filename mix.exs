@@ -38,6 +38,7 @@ defmodule AllOnboard.Mixfile do
      {:cowboy, "~> 1.0"},
      {:arc, "~> 0.1.3"},
      {:arc_ecto, "~> 0.2.0"}]
+     {:exrm, "~> 0.14.2"}]
   end
 
   # Aliases are shortcut or tasks specific to the current project.
