@@ -1,0 +1,30 @@
+<h2>Listing cars</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Beacon major</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for car <- @cars do %>
+    <tr>
+      <td><%= car.make %></td>
+      <td><%= car.model %></td>
+      <td><%= car.beacon_major %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: car_path(@conn, :show, car), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: car_path(@conn, :edit, car), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: car_path(@conn, :delete, car), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New car", to: car_path(@conn, :new) %>

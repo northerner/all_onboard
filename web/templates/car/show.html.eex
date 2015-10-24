@@ -1,0 +1,23 @@
+<h2>Show car</h2>
+
+<ul>
+
+  <li>
+    <strong>Make:</strong>
+    <%= @car.make %>
+  </li>
+
+  <li>
+    <strong>Model:</strong>
+    <%= @car.model %>
+  </li>
+
+  <li>
+    <strong>Beacon major:</strong>
+    <%= @car.beacon_major %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: car_path(@conn, :edit, @car) %>
+<%= link "Back", to: car_path(@conn, :index) %>
