@@ -11,7 +11,13 @@ defmodule AllOnboard.API.CarView do
       id: car.id,
       make: car.make,
       model: car.model,
-      beacon_major: car.beacon_major
+      beacon_major: car.beacon_major,
+      description: car.description,
+      layout: car.layout,
+      fuel_type: car.fuel_type,
+      gearing: car.gearing,
+      intro_video_id: car.intro_video_id,
+      photo_url: AllOnboard.Photo.url({car.photo, car})
     }
   end
 

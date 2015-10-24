@@ -24,5 +24,6 @@ defmodule AllOnboard.Router do
     pipe_through :api
 
     resources "/cars", API.CarController
+    resources "/photos", API.PhotoController
   end
 end
