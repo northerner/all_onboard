@@ -4,6 +4,7 @@
 /deps
 /*.ez
 /.vagrant
+/rel
 
 # Generate on crash by the VM
 erl_crash.dump
