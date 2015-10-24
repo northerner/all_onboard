@@ -37,7 +37,7 @@ defmodule AllOnboard.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:cowboy, "~> 1.0"},
      {:arc, "~> 0.1.3"},
-     {:arc_ecto, "~> 0.2.0"}]
+     {:arc_ecto, "~> 0.2.0"},
      {:exrm, "~> 0.14.2"}]
   end
 
