@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hello Phoenix!</title>
+    <title>All-onboard</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/cars.css") %>">
   </head>
@@ -19,6 +19,8 @@
           <li><a href="<%= car_path(@conn, :index) %>">cars</a></li>
         </ul>
         <span class="logo"></span>
+        <h2><small>Simplifying car rentals</small></h2>
+        
       </div>
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
