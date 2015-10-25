@@ -17,7 +17,11 @@
     <%= @car.beacon_major %>
   </li>
 
+  <li>
+    <img src="/<%= AllOnboard.Photo.url({@car.photo, @car}) %>"/>
+  </li>
 </ul>
+
 
 <%= link "Edit", to: car_path(@conn, :edit, @car) %>
 <%= link "Back", to: car_path(@conn, :index) %>
