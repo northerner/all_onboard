@@ -1,0 +1,20 @@
+#messages  {
+  height: 200px;
+  overflow: auto;
+  border: 1px #eee solid;
+}
+
+h2 { margin-top: 0; }
+
+img.car {
+  max-width: 240px;
+}
+
+.customer-chat h3 {
+  margin-top:0;
+}
+
+.action-links a {
+  margin-top:20px;
+  padding-right:20px;
+}
