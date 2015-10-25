@@ -29,5 +29,6 @@
 
 <%= link "New car", to: car_path(@conn, :new) %>
 
+<h3>Chat with customers</h3>
 <div id="messages"></div>
-<input id="chat-input" type="text"></input>
+<span>Message:</span><input id="chat-input" type="text" data-channel-name="cars:lobby"></input>

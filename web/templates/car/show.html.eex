@@ -21,3 +21,6 @@
 
 <%= link "Edit", to: car_path(@conn, :edit, @car) %>
 <%= link "Back", to: car_path(@conn, :index) %>
+
+<div id="messages"></div>
+<input id="chat-input" type="text" data-channel-name="cars:<%= @car.id %>"></input>

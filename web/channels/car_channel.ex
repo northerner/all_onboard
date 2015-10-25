@@ -5,8 +5,8 @@ defmodule AllOnboard.CarChannel do
     {:ok, socket}
   end
 
-  def join("rooms:" <> _private_room_id, _params, _socket) do
-    {:error, %{reason: "unauthorized"}}
+  def join("cars:" <> car_id, message, socket) do
+    {:ok, socket}
   end
 
   def handle_in("new_msg", %{"body" => body}, socket) do

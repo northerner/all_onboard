@@ -67,6 +67,7 @@ chatInput.on("keypress", event => {
 
 channel.on("new_msg", payload => {
   messagesContainer.append(`<br/>[${Date()}] ${payload.body}`)
+  messagesContainer.scrollTop(messagesContainer[0].scrollHeight);
 })
 
 channel.join()
