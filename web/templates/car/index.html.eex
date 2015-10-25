@@ -31,4 +31,5 @@
 
 <h3>Chat with customers</h3>
 <div id="messages"></div>
+<span>Name:</span><input id="username-input" type="text"></input>
 <span>Message:</span><input id="chat-input" type="text" data-channel-name="cars:lobby"></input>
