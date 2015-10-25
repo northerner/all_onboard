@@ -17,6 +17,7 @@ defmodule AllOnboard.API.CarView do
       fuel_type: car.fuel_type,
       gearing: car.gearing,
       intro_video_id: car.intro_video_id,
+      el_intro_video_id: car.el_intro_video_id,
       photo_url: AllOnboard.Photo.url({car.photo, car})
     }
   end

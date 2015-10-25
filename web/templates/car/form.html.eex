@@ -51,6 +51,11 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :el_intro_video_id, "Greek Intro video youtube ID", class: "control-label" %>
+    <%= text_input f, :el_intro_video_id, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <label>Photo</label>
     <%= file_input f, :photo, class: "form-control" %>
   </div>

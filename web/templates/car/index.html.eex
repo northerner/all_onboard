@@ -6,6 +6,7 @@
       <th>Make</th>
       <th>Model</th>
       <th>Beacon major</th>
+      <th>Connected users</th>
 
       <th></th>
     </tr>
@@ -16,6 +17,7 @@
       <td><%= car.make %></td>
       <td><%= car.model %></td>
       <td><%= car.beacon_major %></td>
+      <td><%= connected_users(car.id) %></td>
 
       <td class="text-right">
         <%= link "Show", to: car_path(@conn, :show, car), class: "btn btn-default btn-xs" %>

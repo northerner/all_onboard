@@ -12,6 +12,7 @@ defmodule AllOnboard.Car do
     field :fuel_type, :string
     field :gearing, :string
     field :intro_video_id, :string
+    field :el_intro_video_id, :string
 
     field :photo_url, :string
     field :photo, AllOnboard.Photo.Type
@@ -20,7 +21,7 @@ defmodule AllOnboard.Car do
   end
 
   @required_fields ~w(make model)
-  @optional_fields ~w(beacon_major description layout fuel_type gearing intro_video_id photo_url)
+  @optional_fields ~w(beacon_major description layout fuel_type gearing intro_video_id el_intro_video_id photo_url)
   @optional_file_fields ~w(photo)
   @required_file_fields ~w()
 
